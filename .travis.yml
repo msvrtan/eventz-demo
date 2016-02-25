@@ -27,7 +27,7 @@ before_script:
 
   - cp etc/travis-ci/app/config/parameters.yml app/config/parameters.yml
   - cp etc/travis-ci/web/app_test.php web/app_test.php
-  - sed -i 's/test.project_name.loc/localhost:8000/' behat.yml
+  - sed -i 's/test.eventz_demo.loc/localhost:8000/' behat.yml
 
   - php app/console server:start --env=test &
 
