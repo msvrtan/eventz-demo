@@ -1,12 +1,10 @@
 <?php
 namespace Company\EventzBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-
 /**
- * Event.
+ * TicketType.
  */
-class Event
+class TicketType
 {
     /**
      * @var int
@@ -17,11 +15,6 @@ class Event
      * @var string
      */
     private $name;
-
-    /**
-     * @var \DateTime
-     */
-    private $eventDate;
 
     /**
      * @var int
@@ -39,19 +32,9 @@ class Event
     private $ticketsWantedCounter = 0;
 
     /**
-     * @var bool
+     * @var int
      */
-    private $active = 1;
-
-    private $ticketTypes;
-
-    /**
-     * Event constructor.
-     */
-    public function __construct()
-    {
-        $this->ticketTypes = new ArrayCollection();
-    }
+    private $event;
 
     /**
      * Get id.
@@ -68,7 +51,7 @@ class Event
      *
      * @param string $name
      *
-     * @return Event
+     * @return TicketType
      */
     public function setName($name)
     {
@@ -88,35 +71,11 @@ class Event
     }
 
     /**
-     * Set eventDate.
-     *
-     * @param \DateTime $eventDate
-     *
-     * @return Event
-     */
-    public function setEventDate($eventDate)
-    {
-        $this->eventDate = $eventDate;
-
-        return $this;
-    }
-
-    /**
-     * Get eventDate.
-     *
-     * @return \DateTime
-     */
-    public function getEventDate()
-    {
-        return $this->eventDate;
-    }
-
-    /**
      * Set ticketsSoldCounter.
      *
      * @param int $ticketsSoldCounter
      *
-     * @return Event
+     * @return TicketType
      */
     public function setTicketsSoldCounter($ticketsSoldCounter)
     {
@@ -140,7 +99,7 @@ class Event
      *
      * @param int $ticketsAvailableCounter
      *
-     * @return Event
+     * @return TicketType
      */
     public function setTicketsAvailableCounter($ticketsAvailableCounter)
     {
@@ -164,7 +123,7 @@ class Event
      *
      * @param int $ticketsWantedCounter
      *
-     * @return Event
+     * @return TicketType
      */
     public function setTicketsWantedCounter($ticketsWantedCounter)
     {
@@ -184,26 +143,26 @@ class Event
     }
 
     /**
-     * Set active.
+     * Set event.
      *
-     * @param bool $active
+     * @param Event $event
      *
-     * @return Event
+     * @return TicketType
      */
-    public function setActive($active)
+    public function setEvent(Event $event)
     {
-        $this->active = $active;
+        $this->event = $event;
 
         return $this;
     }
 
     /**
-     * Get active.
+     * Get event.
      *
-     * @return bool
+     * @return int
      */
-    public function isActive()
+    public function getEvent()
     {
-        return $this->active;
+        return $this->event;
     }
 }

@@ -6,12 +6,26 @@ default:
             snippets: false
 
     suites:
+        event:
+            contexts:
+                - Company\EventzBundle\Resources\EventFixtureContext
+                - Company\EventzBundle\Resources\EventContext
+            filters:
+                tags: "@event"
+        eventfront:
+            contexts:
+                - Company\EventzBundle\Resources\EventFixtureContext
+                - Company\EventzBundle\Resources\EventWebContext
+            filters:
+                tags: "@event && @front"
         web:
             contexts:
                 - Resources\Behat\WebContext
+            filters:
+                tags: "~@event"
     extensions:
         Behat\MinkExtension:
-            base_url: http://test.eventz_demo.loc/
+            base_url: https://test.eventz_demo.loc/
             sessions:
                 default:
                     symfony2: ~
