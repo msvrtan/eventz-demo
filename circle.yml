@@ -3,6 +3,8 @@ machine:
     version: 5.6.5
   hosts:
     www.test.ci: 127.0.0.1
+  environment:
+    COMPOSER_DISCARD_CHANGES: true
 general:
   artifacts:
     - "build/"
@@ -36,8 +38,8 @@ dependencies:
     - php app/console doctrine:migrations:migrate --env=test --no-interaction
     - php app/console doctrine:fixtures:load --env=test --no-interaction
     - php app/console assetic:dump --env=prod --no-debug    
-    - wget http://selenium-release.storage.googleapis.com/2.46/selenium-server-standalone-2.46.0.jar
-    - java -jar selenium-server-standalone-2.46.0.jar:
+    - wget http://selenium-release.storage.googleapis.com/2.50/selenium-server-standalone-2.50.1.jar
+    - java -jar selenium-server-standalone-2.50.1.jar:
         background: true
   cache_directories:
     - "vendor"
@@ -51,12 +53,10 @@ test:
     - ./bin/behat --strict
     - ./bin/phpmd src/ text phpmd.xml
     - ./bin/phpmd app/ text phpmd.xml
-    - ./bin/phpmd tests/ text phpmd.xml
     - ./bin/phpcs --standard=phpcs.xml src/ -n
     - ./bin/phpcs --standard=phpcs.xml app/ -n
-    - ./bin/phpcs --standard=phpcs.xml tests/ -n
     - ./bin/php-cs-fixer fix spec/ --dry-run --diff --level=symfony --fixers=short_array_syntax,align_double_arrow,align_equals,no_blank_lines_before_namespace,ordered_use,phpdoc_order,-unused_use,-empty_return
     - ./bin/php-cs-fixer fix src/ --dry-run --diff --level=symfony --fixers=short_array_syntax,align_double_arrow,align_equals,no_blank_lines_before_namespace,ordered_use,phpdoc_order,-unused_use,-empty_return
     - ./bin/php-cs-fixer fix tests/ --dry-run --diff --level=symfony --fixers=short_array_syntax,align_double_arrow,align_equals,no_blank_lines_before_namespace,ordered_use,phpdoc_order,-unused_use,-empty_return
-    - ./bin/coveralls
-    - ./bin/test-reporter
+    #- ./bin/coveralls
+    #- ./bin/test-reporter
