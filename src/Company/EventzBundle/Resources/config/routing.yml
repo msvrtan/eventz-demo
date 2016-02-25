@@ -1,0 +1,3 @@
+company_eventz_homepage:
+    path:     /
+    defaults: { _controller: CompanyEventzBundle:Default:index }
