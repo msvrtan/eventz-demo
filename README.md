@@ -1,7 +1,7 @@
 eventz-demo
 ===========
 
-[![Circle CI](https://circleci.com/gh/msvrtan/eventz_demo/tree/master.svg?style=svg)](https://circleci.com/gh/msvrtan/eventz_demo/tree/master)
+[![Circle CI](https://circleci.com/gh/msvrtan/eventz-demo/tree/master.svg?style=svg)](https://circleci.com/gh/msvrtan/eventz-demo/tree/master)
 
 
 Task:
