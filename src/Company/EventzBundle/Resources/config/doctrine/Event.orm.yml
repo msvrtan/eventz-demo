@@ -24,5 +24,5 @@ Company\EventzBundle\Entity\Event:
   oneToMany:
     ticketTypes:
       targetEntity: Company\EventzBundle\Entity\TicketType
-      mappedBy: id
+      mappedBy: event
   lifecycleCallbacks: {  }
