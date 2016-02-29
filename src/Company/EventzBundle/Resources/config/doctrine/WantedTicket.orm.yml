@@ -1,0 +1,35 @@
+Company\EventzBundle\Entity\WantedTicket:
+  type: entity
+  table: WantedTickets
+  repositoryClass: Company\EventzBundle\Repository\WantedTicketRepository
+  id:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+  fields:
+    ticketsNeeded:
+      type: integer
+    maximumPricePerTicket:
+      type: integer
+    maximumPricePerTicketCurrency:
+      type: string
+      length: 255
+    notificationEmail:
+      type: string
+      length: 255
+  manyToOne:
+    event:
+      targetEntity: Company\EventzBundle\Entity\Event
+      inversedBy: wantedTickets
+      joinColumn:
+        name: event
+        referencedColumnName: id
+    ticketType:
+      targetEntity: Company\EventzBundle\Entity\TicketType
+      inversedBy: wantedTickets
+      joinColumn:
+        name: ticketType
+        referencedColumnName: id
+  lifecycleCallbacks: {  }

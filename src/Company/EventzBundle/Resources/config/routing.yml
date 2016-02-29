@@ -1,3 +1,6 @@
 company_eventz_page:
     path:     /{id}
     defaults: { _controller: CompanyEventzBundle:Default:index }
+company_ticket_type_page:
+    path:     /{eventId}/ticket-type/{id}
+    defaults: { _controller: CompanyEventzBundle:Default:ticketType }

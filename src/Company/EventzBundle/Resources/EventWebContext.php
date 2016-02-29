@@ -11,9 +11,26 @@ class EventWebContext extends WebContext
      */
     public function iAmOnEvent($eventName)
     {
-        $event = $this->getEntityManager()->getRepository('CompanyEventzBundle:Event')->findOneByName($eventName);
+        $event = $this->getEventRepo()->findOneByName($eventName);
 
         $this->visitPath('/events/'.$event->getId());
+    }
+
+    /**
+     * @When I am on :eventName events :ticketTypeName ticket page
+     */
+    public function iAmOnEventsTicketPage($eventName, $ticketTypeName)
+    {
+        $event = $this->getEventRepo()->findOneByName($eventName);
+
+        $ticketType = $this->getTicketTypeRepo()->findOneBy(
+            [
+                'event' => $event,
+                'name'  => $ticketTypeName,
+            ]
+        );
+
+        $this->visitPath('/events/'.$event->getId().'/ticket-type/'.$ticketType->getId());
     }
 
     /**
@@ -32,5 +49,15 @@ class EventWebContext extends WebContext
     public function iClickOn($eventTitle)
     {
         $this->clickLink($eventTitle);
+    }
+
+    private function getEventRepo()
+    {
+        return $this->getEntityManager()->getRepository('CompanyEventzBundle:Event');
+    }
+
+    private function getTicketTypeRepo()
+    {
+        return $this->getEntityManager()->getRepository('CompanyEventzBundle:TicketType');
     }
 }

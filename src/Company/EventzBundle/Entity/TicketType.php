@@ -1,6 +1,8 @@
 <?php
 namespace Company\EventzBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * TicketType.
  */
@@ -35,6 +37,15 @@ class TicketType
      * @var Event
      */
     private $event;
+    private $wantedTickets;
+
+    /**
+     * Event constructor.
+     */
+    public function __construct()
+    {
+        $this->wantedTickets = new ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -118,6 +129,11 @@ class TicketType
         return $this->ticketsAvailableCounter;
     }
 
+    public function incrementTicketsWantedCounter($howManyNewTickets)
+    {
+        $this->ticketsWantedCounter += $howManyNewTickets;
+    }
+
     /**
      * Set ticketsWantedCounter.
      *
@@ -164,5 +180,10 @@ class TicketType
     public function getEvent()
     {
         return $this->event;
+    }
+
+    public function getWantedTickets()
+    {
+        return $this->wantedTickets;
     }
 }

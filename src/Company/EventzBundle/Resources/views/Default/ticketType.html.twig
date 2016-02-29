@@ -1,0 +1,42 @@
+{% extends "::base.html.twig" %}
+
+{% block jumbotron %}
+    <div class="container">
+        <h1>{{ ticketType.name }} tickets for {{ ticketType.event.name }}</h1>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <div class="row">
+        <span> We have {{ ticketType.ticketsAvailableCounter }} available and {{ ticketType.ticketsWantedCounter }} wanted <strong>{{ ticketType.name }}</strong> tickets for this event!</span>
+        <br/>
+        <br/>
+    </div>
+    <div class="row">
+        <div class="text-center">
+            <a href="" class="btn btn-default">I want to sell a <strong>"{{ ticketType.name }}"</strong> ticket</a>
+            <a href="" class="btn btn-success">I'm looking for a <strong>"{{ ticketType.name }}"</strong> ticket</a>
+        </div>
+
+    </div>
+
+    <div class="clear-fix row">&nbsp;</div>
+    <div class="row">
+        <div class="col-md-10 col-lg-10">There are {{ ticketType.ticketsWantedCounter }} tickets wanted:</div>
+        <div class="col-md-2 col-lg-2 text-center">Price</div>
+    </div>
+    <div class="row">&nbsp;</div>
+    {% for wantedTicket in ticketType.wantedTickets %}
+        <div class="row">
+            <div class="col-md-10 col-lg-10">
+                {{ wantedTicket.ticketsNeeded }} X <b>{{ ticketType.name }}</b> for {{ ticketType.event.name }}
+            </div>
+            <div class="col-md-2 col-lg-2 text-center">
+                {{ wantedTicket.maximumPricePerTicket }}
+                {{ wantedTicket.maximumPricePerTicketCurrency }} / ticket
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

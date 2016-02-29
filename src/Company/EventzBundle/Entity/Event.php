@@ -44,13 +44,15 @@ class Event
     private $active = 1;
 
     private $ticketTypes;
+    private $wantedTickets;
 
     /**
      * Event constructor.
      */
     public function __construct()
     {
-        $this->ticketTypes = new ArrayCollection();
+        $this->ticketTypes   = new ArrayCollection();
+        $this->wantedTickets = new ArrayCollection();
     }
 
     /**
@@ -222,8 +224,41 @@ class Event
     /**
      * @return ArrayCollection
      */
+    public function getTicketType($id)
+    {
+        foreach ($this->ticketTypes as $ticketType) {
+            if ($ticketType->getId() === $id) {
+                return $ticketType;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
     public function getTicketTypes()
     {
         return $this->ticketTypes;
+    }
+
+    protected function incrementTicketsWantedCounter($howManyNewTickets)
+    {
+        $this->ticketsWantedCounter += $howManyNewTickets;
+    }
+
+    public function addNewWantedTickets(WantedTicket $wantedTicket)
+    {
+        $this->wantedTickets[] = $wantedTicket;
+
+        $this->incrementTicketsWantedCounter($wantedTicket->getTicketsNeeded());
+
+        $wantedTicket->getTicketType()->incrementTicketsWantedCounter($wantedTicket->getTicketsNeeded());
+    }
+
+    public function getWantedTickets()
+    {
+        return $this->wantedTickets;
     }
 }

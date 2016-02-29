@@ -8,6 +8,10 @@
 
 {% block body %}
 <div class="container">
+
+    <div class="row">
+        <span> We have {{ event.ticketsAvailableCounter }} available and {{ event.ticketsWantedCounter }} wanted tickets for this event!</span>
+    </div>
     <div class="row">
         <div class="text-center">
             <a href="" class="btn btn-default">I want to sell a ticket</a>
@@ -15,6 +19,7 @@
         </div>
 
     </div>
+
     <div class="clear-fix row">&nbsp;</div>
     <div class="row">
         <div class="col-md-8 col-lg-8">&nbsp;</div>
@@ -24,17 +29,18 @@
     {% for ticketType in event.ticketTypes %}
         <div class="row">
             <div class="col-md-8 col-lg-8">
-                <h2>{{ ticketType.name }}</h2>
+                <h2>
+                    <a href="{{ path('company_ticket_type_page',{eventId: event.id,id: ticketType.id}) }}">
+                        {{ ticketType.name }}
+                    </a>
+                </h2>
             </div>
             <div class="col-md-2 col-lg-2 text-center">
                 {{ ticketType.ticketsAvailableCounter }}
-
             </div>
             <div class="col-md-2 col-lg-2 text-center">
                 {{ ticketType.ticketsWantedCounter }}
-
             </div>
-
         </div>
     {% endfor %}
 
