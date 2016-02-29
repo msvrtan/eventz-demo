@@ -15,4 +15,12 @@ class EventWebContext extends WebContext
             $this->assertPageContainsText('Event Number #'.$i);
         }
     }
+
+    /**
+     * @When I click on :eventTitle
+     */
+    public function iClickOn($eventTitle)
+    {
+        $this->clickLink($eventTitle);
+    }
 }

@@ -8,17 +8,6 @@ use Behat\Behat\Hook\Scope\BeforeScenarioScope;
  */
 trait CleanDbTrait
 {
-    /**
-     * @BeforeScenario
-     *
-     * @param BeforeScenarioScope $scope
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     */
-    public function cleanDatabase(BeforeScenarioScope $scope)
-    {
-        $this->cleanDb();
-    }
-
     protected function cleanDb()
     {
         $em            = $this->getEntityManager();

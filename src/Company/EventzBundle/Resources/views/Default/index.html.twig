@@ -1,1 +1,14 @@
-Hello World!
+{% extends "::base.html.twig" %}
+
+{% block jumbotron %}
+    <div class="container">
+        <h1>{{ event.name }}</h1>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+    </div>
+
+{% endblock %}

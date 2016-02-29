@@ -6,12 +6,6 @@ default:
             snippets: false
 
     suites:
-        event:
-            contexts:
-                - Company\EventzBundle\Resources\EventFixtureContext
-                - Company\EventzBundle\Resources\EventContext
-            filters:
-                tags: "@event"
         eventfront:
             contexts:
                 - Company\EventzBundle\Resources\EventFixtureContext

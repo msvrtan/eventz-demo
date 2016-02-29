@@ -8,7 +8,6 @@ use Behat\Gherkin\Node\TableNode;
  */
 class DomainContext extends DefaultContext
 {
-    use CleanDbTrait;
     use LoginDomainTrait;
 
     /**
