@@ -17,6 +17,7 @@ class WantedTicketType extends AbstractType
     /**
      * @param FormBuilderInterface $builder
      * @param array                $options
+     * @SuppressWarnings("PHPMD.UnusedFormalParameter")
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -26,7 +27,7 @@ class WantedTicketType extends AbstractType
             ->add('maximumPricePerTicketCurrency', ChoiceType::class, ['choices' => $this->currencyChoices()])
             ->add('notificationEmail');
 
-        $formMod = function (FormInterface $form, Event $event = null, TicketType $ticketType = null) {
+        $formMod = function (FormInterface $form, Event $event = null) {
 
             $ticketTypes = [];
             if ($event) {
