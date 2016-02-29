@@ -10,7 +10,7 @@ use Behat\Symfony2Extension\Context\KernelAwareContext;
  */
 class WebContext extends MinkContext implements KernelAwareContext, SnippetAcceptingContext
 {
-    private $output;
+    protected $output;
     use LoginWebTrait;
     use ScreenshotTrait;
     use Symfony2Trait;

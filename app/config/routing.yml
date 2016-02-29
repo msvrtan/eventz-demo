@@ -1,3 +1,7 @@
+company_eventz:
+    resource: "@CompanyEventzBundle/Resources/config/routing.yml"
+    prefix:   /events/
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

@@ -8,21 +8,10 @@ use Behat\Behat\Hook\Scope\BeforeScenarioScope;
  */
 trait CleanDbTrait
 {
-    /**
-     * @BeforeScenario
-     *
-     * @param BeforeScenarioScope $scope
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     */
-    public function cleanDatabase(BeforeScenarioScope $scope)
-    {
-        $this->cleanDb();
-    }
-
     protected function cleanDb()
     {
         $em            = $this->getEntityManager();
-        $orderedTables = [];
+        $orderedTables = ['Events', 'TicketTypes'];
 
         $em->getConnection()->executeUpdate('SET foreign_key_checks = 0;');
         $platform = $em->getConnection()->getDatabasePlatform();

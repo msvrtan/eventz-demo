@@ -1,0 +1,28 @@
+Company\EventzBundle\Entity\Event:
+  type: entity
+  table: Events
+  repositoryClass: Company\EventzBundle\Repository\EventRepository
+  id:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: text
+    eventDate:
+      type: datetime
+    ticketsSoldCounter:
+      type: integer
+    ticketsAvailableCounter:
+      type: integer
+    ticketsWantedCounter:
+      type: integer
+    active:
+      type: boolean
+  oneToMany:
+    ticketTypes:
+      targetEntity: Company\EventzBundle\Entity\TicketType
+      mappedBy: event
+  lifecycleCallbacks: {  }
