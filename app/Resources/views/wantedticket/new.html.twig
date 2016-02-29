@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>I wanna new ticket for "{{ event.name }}"</h1>
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create"/>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

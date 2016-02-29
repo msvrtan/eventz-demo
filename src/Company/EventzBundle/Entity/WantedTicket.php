@@ -1,6 +1,8 @@
 <?php
 namespace Company\EventzBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * WantedTicket.
  */
@@ -38,6 +40,7 @@ class WantedTicket
 
     /**
      * @var string
+     * @Assert\Email()
      */
     private $notificationEmail;
 

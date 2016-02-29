@@ -4,3 +4,14 @@ company_eventz_page:
 company_ticket_type_page:
     path:     /{eventId}/ticket-type/{id}
     defaults: { _controller: CompanyEventzBundle:Default:ticketType }
+
+company_event_wantedticket_new:
+    path:     /{eventId}/wanted/new
+    defaults: { _controller: "CompanyEventzBundle:WantedTicket:new" }
+    methods:  [GET,POST]
+
+company_event_wantedticket_show:
+    path:     /wanted/show/{id}
+    defaults: { _controller: "CompanyEventzBundle:WantedTicket:show" }
+    methods:  [GET]
+

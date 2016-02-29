@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>WantedTicket list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ticketsneeded</th>
+                <th>Maximumpriceperticket</th>
+                <th>Maximumpriceperticketcurrency</th>
+                <th>Notificationemail</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for wantedTicket in wantedTickets %}
+            <tr>
+                <td><a href="{{ path('wantedticket_show', { 'id': wantedTicket.id }) }}">{{ wantedTicket.id }}</a></td>
+                <td>{{ wantedTicket.ticketsNeeded }}</td>
+                <td>{{ wantedTicket.maximumPricePerTicket }}</td>
+                <td>{{ wantedTicket.maximumPricePerTicketCurrency }}</td>
+                <td>{{ wantedTicket.notificationEmail }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('wantedticket_show', { 'id': wantedTicket.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('wantedticket_edit', { 'id': wantedTicket.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('wantedticket_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

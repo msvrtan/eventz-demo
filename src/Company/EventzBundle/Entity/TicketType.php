@@ -186,4 +186,9 @@ class TicketType
     {
         return $this->wantedTickets;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

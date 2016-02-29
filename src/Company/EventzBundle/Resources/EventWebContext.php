@@ -51,6 +51,22 @@ class EventWebContext extends WebContext
         $this->clickLink($eventTitle);
     }
 
+    /**
+     * @When I save changes
+     */
+    public function iSaveChanges()
+    {
+        $this->pressButton('Create');
+    }
+
+    /**
+     * @Then :ticketTypeName should be selected ticket type
+     */
+    public function shouldBeSelectedTicketType($ticketTypeName)
+    {
+        $this->theOptionFromShouldBeSelected('form_ticketType', $ticketTypeName);
+    }
+
     private function getEventRepo()
     {
         return $this->getEntityManager()->getRepository('CompanyEventzBundle:Event');
