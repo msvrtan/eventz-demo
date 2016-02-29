@@ -16,4 +16,15 @@ class DefaultController extends Controller
 
         return $this->render('CompanyEventzBundle:Default:index.html.twig', $data);
     }
+
+    public function ticketTypeAction($id)
+    {
+        $ticketTypeRepo = $this->getDoctrine()->getRepository('CompanyEventzBundle:TicketType');
+
+        $ticketType = $ticketTypeRepo->find($id);
+
+        $data = ['ticketType' => $ticketType];
+
+        return $this->render('CompanyEventzBundle:Default:ticketType.html.twig', $data);
+    }
 }

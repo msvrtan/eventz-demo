@@ -25,4 +25,8 @@ Company\EventzBundle\Entity\TicketType:
       joinColumn:
         name: event
         referencedColumnName: id
+  oneToMany:
+    wantedTickets:
+      targetEntity: Company\EventzBundle\Entity\WantedTicket
+      mappedBy: ticketType
   lifecycleCallbacks: {  }

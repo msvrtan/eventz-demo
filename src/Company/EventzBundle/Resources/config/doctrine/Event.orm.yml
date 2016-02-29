@@ -25,4 +25,7 @@ Company\EventzBundle\Entity\Event:
     ticketTypes:
       targetEntity: Company\EventzBundle\Entity\TicketType
       mappedBy: event
+    wantedTickets:
+      targetEntity: Company\EventzBundle\Entity\WantedTicket
+      mappedBy: event
   lifecycleCallbacks: {  }
