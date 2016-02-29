@@ -1,4 +1,4 @@
-@event @front @javascript
+@event @front
 Feature: Showing events
   In order to buy or sell tickets
   As a user
