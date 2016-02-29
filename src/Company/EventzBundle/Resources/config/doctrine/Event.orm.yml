@@ -1,6 +1,6 @@
 Company\EventzBundle\Entity\Event:
   type: entity
-  table: null
+  table: Events
   repositoryClass: Company\EventzBundle\Repository\EventRepository
   id:
     id:

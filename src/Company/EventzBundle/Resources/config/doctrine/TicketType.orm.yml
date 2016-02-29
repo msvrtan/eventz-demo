@@ -1,6 +1,6 @@
 Company\EventzBundle\Entity\TicketType:
   type: entity
-  table: null
+  table: TicketTypes
   repositoryClass: Company\EventzBundle\Repository\TicketTypeRepository
   id:
     id:

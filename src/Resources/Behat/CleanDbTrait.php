@@ -11,7 +11,7 @@ trait CleanDbTrait
     protected function cleanDb()
     {
         $em            = $this->getEntityManager();
-        $orderedTables = ['Event', 'TicketType'];
+        $orderedTables = ['Events', 'TicketTypes'];
 
         $em->getConnection()->executeUpdate('SET foreign_key_checks = 0;');
         $platform = $em->getConnection()->getDatabasePlatform();
