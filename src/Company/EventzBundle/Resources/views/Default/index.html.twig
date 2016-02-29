@@ -7,8 +7,35 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container">
+<div class="container">
+    <div class="row">
+        <div class="text-center">
+            <a href="" class="btn btn-default">I want to sell a ticket</a>
+            <a href="" class="btn btn-success">I'm looking for a ticket</a>
+        </div>
 
     </div>
+    <div class="clear-fix row">&nbsp;</div>
+    <div class="row">
+        <div class="col-md-8 col-lg-8">&nbsp;</div>
+        <div class="col-md-2 col-lg-2 text-center">On sale:</div>
+        <div class="col-md-2 col-lg-2 text-center">Looking for:</div>
+    </div>
+    {% for ticketType in event.ticketTypes %}
+        <div class="row">
+            <div class="col-md-8 col-lg-8">
+                <h2>{{ ticketType.name }}</h2>
+            </div>
+            <div class="col-md-2 col-lg-2 text-center">
+                {{ ticketType.ticketsAvailableCounter }}
 
-{% endblock %}
+            </div>
+            <div class="col-md-2 col-lg-2 text-center">
+                {{ ticketType.ticketsWantedCounter }}
+
+            </div>
+
+        </div>
+    {% endfor %}
+
+    {% endblock %}

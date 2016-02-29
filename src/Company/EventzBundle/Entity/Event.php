@@ -206,4 +206,24 @@ class Event
     {
         return $this->active;
     }
+
+    /**
+     * @param TicketType $ticketType
+     *
+     * @return $this
+     */
+    public function addTicketType(TicketType $ticketType)
+    {
+        $this->ticketTypes[] = $ticketType;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTicketTypes()
+    {
+        return $this->ticketTypes;
+    }
 }

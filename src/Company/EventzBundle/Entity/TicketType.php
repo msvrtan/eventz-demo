@@ -32,7 +32,7 @@ class TicketType
     private $ticketsWantedCounter = 0;
 
     /**
-     * @var int
+     * @var Event
      */
     private $event;
 
